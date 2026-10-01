@@ -53,6 +53,7 @@ ignore = ["E501"]
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "S311"]
 "src/tmig_closure/mastery/*.py" = ["S603", "S607"]
+"src/tmig_closure/mastery_languages/*.py" = ["W605"]
 
 [tool.mypy]
 python_version = "3.12"

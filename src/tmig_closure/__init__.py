@@ -13,6 +13,18 @@ from tmig_closure.core import (
     immediate_consequence,
     rule,
 )
+from tmig_closure.mastery_languages import (
+    ATLAS as LANGUAGES_ATLAS,
+)
+from tmig_closure.mastery_languages import (
+    assess as assess_languages,
+)
+from tmig_closure.mastery_languages import (
+    classify_file as classify_language,
+)
+from tmig_closure.mastery_languages import (
+    languages as language_ids,
+)
 from tmig_closure.symmetry import canonical, count_vector, orbit_key, stabilizer_size
 from tmig_closure.triad import (
     ALL_STATES,
@@ -40,6 +52,7 @@ __all__ = [
     "ALL_STATES",
     "CONFLICT",
     "FAIL",
+    "LANGUAGES_ATLAS",
     "PASS",
     "UNKNOWN",
     "Agent",
@@ -50,7 +63,9 @@ __all__ = [
     "Triad",
     "VState",
     "__version__",
+    "assess_languages",
     "canonical",
+    "classify_language",
     "close",
     "closure_steps",
     "coherence",
@@ -62,6 +77,7 @@ __all__ = [
     "immediate_consequence",
     "join_know",
     "join_truth",
+    "language_ids",
     "meet_know",
     "meet_truth",
     "orbit_key",

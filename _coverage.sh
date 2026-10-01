@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
 set -euo pipefail
 REPO="Danny-TMIG/tmig_closure"
 say(){ printf '\033[1;36m==> %s\033[0m\n' "$*"; }

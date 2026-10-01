@@ -1,5 +1,7 @@
 # Incident Response
 
+<!-- SPDX-License-Identifier: MIT -->
+
 1. Detect via `/health` or SLO burn alert.
 2. Page on-call, ack in 5 min.
 3. Check recent deploys.

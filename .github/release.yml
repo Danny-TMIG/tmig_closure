@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 changelog:
   exclude:
     labels: [skip-changelog, dependencies]

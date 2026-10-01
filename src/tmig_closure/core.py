@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 r"""The kernel: a monotone closure operator over capability primitives.
 
     A         finite alphabet of primitive names (str)
@@ -31,6 +34,7 @@ def rule(premises: Iterable[Primitive], conclusions: Iterable[Primitive]) -> Rul
 
 
 def _normalise(rules: Iterable[Rule]) -> tuple[Rule, ...]:
+    """Coerce every rule to frozensets so comparisons are hash-safe."""
     return tuple((frozenset(p), frozenset(c)) for p, c in rules)
 
 

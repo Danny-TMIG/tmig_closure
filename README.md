@@ -1,5 +1,7 @@
 # tmig_closure
 
+<!-- SPDX-License-Identifier: MIT -->
+
 ![ci](https://github.com/Danny-TMIG/tmig_closure/actions/workflows/ci.yml/badge.svg)
 ![codeql](https://github.com/Danny-TMIG/tmig_closure/actions/workflows/codeql.yml/badge.svg)
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)

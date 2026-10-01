@@ -35,3 +35,13 @@ run:
 
 clean:
 	rm -rf $(VENV) build dist .pytest_cache .mypy_cache .ruff_cache .coverage htmlcov
+
+docstrings:
+	$(BIN)/interrogate -c pyproject.toml src/
+
+audit:
+	$(BIN)/bandit -q -c pyproject.toml -r src
+	$(BIN)/pip-audit --strict || true
+
+track: lint type test docstrings
+	@$(BIN)/coverage report --fail-under=100

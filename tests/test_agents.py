@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 """Multi-agent composition tests."""
 
 from tmig_closure import Agent, consensus, product, quorum, rule, run_to_fixpoint, step

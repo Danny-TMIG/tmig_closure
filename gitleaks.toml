@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 title = "tmig_closure gitleaks configuration"
 
 [extend]

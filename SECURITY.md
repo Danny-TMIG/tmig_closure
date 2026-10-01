@@ -1,5 +1,7 @@
 # Security
 
+<!-- SPDX-License-Identifier: MIT -->
+
 ## Reporting
 
 Email `security@the-mark-intelligence-group.example`. Do not open a public issue.

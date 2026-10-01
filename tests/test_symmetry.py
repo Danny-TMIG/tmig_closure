@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 """Symmetry reduction tests."""
 
 from tmig_closure import canonical, count_vector, orbit_key, stabilizer_size

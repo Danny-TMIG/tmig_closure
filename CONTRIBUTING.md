@@ -1,5 +1,7 @@
 # Contributing
 
+<!-- SPDX-License-Identifier: MIT -->
+
 ## Setup
 
     make install

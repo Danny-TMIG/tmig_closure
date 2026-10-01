@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 default_install_hook_types: [pre-commit, commit-msg]
 
 repos:

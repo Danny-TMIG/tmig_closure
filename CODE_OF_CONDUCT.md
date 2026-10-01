@@ -1,5 +1,7 @@
 # Code of Conduct
 
+<!-- SPDX-License-Identifier: MIT -->
+
 Adapted from the [Contributor Covenant](https://www.contributor-covenant.org) v2.1.
 
 ## Pledge

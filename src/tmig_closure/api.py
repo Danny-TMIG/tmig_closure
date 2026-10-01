@@ -1,5 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
 """HTTP surface for the closure kernel."""
-
 from __future__ import annotations
 
 import os
@@ -21,52 +22,71 @@ MAX_STEPS = int(os.environ.get("TMIG_MAX_STEPS", "10000"))
 
 
 class RuleModel(BaseModel):
+    """A rule: premises imply conclusions."""
+
     premises: list[str] = Field(default_factory=list)
     conclusions: list[str] = Field(default_factory=list)
 
 
 class ClosureRequest(BaseModel):
+    """Request body for ``POST /closure``."""
+
     config: list[str]
     rules: list[RuleModel]
     max_steps: int = Field(default=MAX_STEPS, ge=1, le=1_000_000)
 
 
 class ClosureResponse(BaseModel):
+    """Response from ``POST /closure``."""
+
     closure: list[str]
     added: list[str]
     iterations: int
 
 
 class AgentModel(BaseModel):
+    """One agent in a coordination request."""
+
     id: str
     config: list[str]
 
 
 class StepRequest(BaseModel):
+    """Request body for ``POST /agents/step``."""
+
     agents: list[AgentModel]
     rules: list[RuleModel]
 
 
 class RunRequest(StepRequest):
+    """Request body for ``POST /agents/run``."""
+
     max_steps: int = Field(default=MAX_STEPS, ge=1, le=1_000_000)
 
 
 class AgentsResponse(BaseModel):
+    """Response from ``/agents/step`` and ``/agents/run``."""
+
     agents: list[AgentModel]
 
 
 class SymmetryRequest(BaseModel):
+    """Request body for ``POST /symmetry/canonical``."""
+
     items: list[str]
     alphabet: list[str] | None = None
 
 
 class SymmetryResponse(BaseModel):
+    """Response from ``POST /symmetry/canonical``."""
+
     canonical: list[str]
     orbit_key: list[list[object]]
     count_vector: list[int] | None = None
 
 
 def _to_rules(models: Iterable[RuleModel]) -> list[tuple[frozenset[str], frozenset[str]]]:
+    """Convert pydantic rule models into ``(premises, conclusions)`` tuples."""
     return [(frozenset(m.premises), frozenset(m.conclusions)) for m in models]
 
 
@@ -75,6 +95,7 @@ def _iterate_count(
     rules: list[tuple[frozenset[str], frozenset[str]]],
     max_steps: int,
 ) -> tuple[frozenset[str], int]:
+    """Iterate ``T_R`` and return the fixpoint plus the iteration count."""
     cur = config
     for i in range(max_steps):
         nxt = immediate_consequence(cur, rules)
@@ -103,16 +124,19 @@ if _origins:
 
 @app.get("/health", tags=["meta"])
 def health() -> dict[str, str]:
+    """Liveness probe."""
     return {"status": "ok"}
 
 
 @app.get("/ready", tags=["meta"])
 def ready() -> dict[str, str]:
+    """Readiness probe."""
     return {"status": "ready"}
 
 
 @app.get("/version", tags=["meta"])
 def version() -> dict[str, str]:
+    """Return build metadata from environment variables."""
     return {
         "version": __version__,
         "commit": os.environ.get("TMIG_BUILD_COMMIT", "dev"),
@@ -122,6 +146,7 @@ def version() -> dict[str, str]:
 
 @app.post("/closure", response_model=ClosureResponse, tags=["closure"])
 def closure(req: ClosureRequest) -> ClosureResponse:
+    """Compute the least fixed point of ``T_R`` above the request's config."""
     try:
         rules = _to_rules(req.rules)
         start = frozenset(req.config)
@@ -137,6 +162,7 @@ def closure(req: ClosureRequest) -> ClosureResponse:
 
 @app.post("/agents/step", response_model=AgentsResponse, tags=["agents"])
 def agents_step(req: StepRequest) -> AgentsResponse:
+    """Apply ``T_R`` once to every agent, synchronously."""
     rules = _to_rules(req.rules)
     agents = [Agent(a.id, frozenset(a.config)) for a in req.agents]
     out = step(agents, rules)
@@ -145,6 +171,7 @@ def agents_step(req: StepRequest) -> AgentsResponse:
 
 @app.post("/agents/run", response_model=AgentsResponse, tags=["agents"])
 def agents_run(req: RunRequest) -> AgentsResponse:
+    """Bring every agent to its closure, bounded by ``max_steps``."""
     rules = _to_rules(req.rules)
     agents = [Agent(a.id, frozenset(a.config)) for a in req.agents]
     try:
@@ -156,6 +183,7 @@ def agents_run(req: RunRequest) -> AgentsResponse:
 
 @app.post("/symmetry/canonical", response_model=SymmetryResponse, tags=["symmetry"])
 def symmetry_canonical(req: SymmetryRequest) -> SymmetryResponse:
+    """Return the ``S_A``-orbit representative, key, and optional count-vector."""
     cv: list[int] | None = None
     if req.alphabet is not None:
         cv = list(count_vector(req.items, req.alphabet))

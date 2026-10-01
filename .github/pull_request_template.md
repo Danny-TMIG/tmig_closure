@@ -1,5 +1,7 @@
 ## Summary
 
+<!-- SPDX-License-Identifier: MIT -->
+
 ## Type
 - [ ] feat  - [ ] fix  - [ ] refactor  - [ ] docs  - [ ] test  - [ ] chore
 

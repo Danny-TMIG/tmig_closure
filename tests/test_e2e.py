@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 """End-to-end: HTTP surface + CLI."""
 
 from fastapi.testclient import TestClient

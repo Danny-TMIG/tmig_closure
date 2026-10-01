@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
 set -euo pipefail
 PY="${PYTHON:-python3}"
 VENV="${VENV:-.venv}"

@@ -1,5 +1,7 @@
 # ADR 0001 — Why no LLM in the kernel
 
+<!-- SPDX-License-Identifier: MIT -->
+
 **Status:** Accepted (2026-09)
 
 ## Decision

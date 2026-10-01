@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 """Tests that close the remaining statement/branch coverage gaps.
 
 Targets, by file:

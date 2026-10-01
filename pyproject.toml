@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 [build-system]
 requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
@@ -27,6 +28,7 @@ dev = [
   "hypothesis>=6.115", "httpx>=0.27",
   "ruff>=0.7", "mypy>=1.13",
   "pre-commit>=4.0", "pip-audit>=2.7", "bandit[toml]>=1.7",
+  "interrogate>=1.7",
 ]
 
 [project.scripts]
@@ -69,6 +71,40 @@ asyncio_mode = "auto"
 [tool.coverage.run]
 branch = true
 source = ["src/tmig_closure"]
+["src/tmig_closure"]
 
 [tool.coverage.report]
+fail_under = 100
 show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+ignore-nested-functions = false
+ignore-nested-classes = false
+ignore-setters = false
+fail-under = 100
+exclude = ["setup.py", "tests", "docs", "scripts"]
+verbose = 1
+quiet = false
+whitelist-regex = []
+color = true
+omit-covered-files = false
+generate-badge = "."
+badge-format = "svg"
+
+[tool.bandit]
+exclude_dirs = ["tests", "scripts"]
+skips = ["B101"]   # asserts are fine in library code

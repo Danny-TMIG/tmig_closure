@@ -1,5 +1,7 @@
 # Deploy
 
+<!-- SPDX-License-Identifier: MIT -->
+
 1. `make check`.
 2. `make build`.
 3. `make sbom`.

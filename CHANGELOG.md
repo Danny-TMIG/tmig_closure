@@ -1,5 +1,7 @@
 # Changelog
 
+<!-- SPDX-License-Identifier: MIT -->
+
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Semantic Versioning: [semver.org](https://semver.org/spec/v2.0.0.html).
 

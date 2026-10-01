@@ -1,5 +1,7 @@
 # Theory
 
+<!-- SPDX-License-Identifier: MIT -->
+
 ## 1. The lattice
 
 Let `A` be a finite alphabet of capability primitives. The power set `2^A` ordered by

@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 #!/usr/bin/env python3
 """Verify the kernel's five algebraic laws with a small model check."""
 from __future__ import annotations

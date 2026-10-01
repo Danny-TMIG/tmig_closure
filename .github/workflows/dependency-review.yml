@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 name: dependency-review
 
 on: [pull_request]

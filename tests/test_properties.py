@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 The Mark Intelligence Group
+
 """Property tests — the five algebraic laws of the closure operator."""
 
 from __future__ import annotations

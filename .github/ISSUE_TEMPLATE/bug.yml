@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 name: Bug report
 description: Something is wrong
 labels: [bug]

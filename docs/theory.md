@@ -40,3 +40,23 @@ factorials of multiplicities.
 - Rules are inputs, not learned.
 - Capabilities are not scored.
 - Primitives are opaque symbols. Interpretation lives above the kernel.
+
+
+## 7. The verification triad
+
+Every closure problem admits three orthogonal questions:
+
+1. **Conformance** -- does the artifact match its declaration?
+   `close(declared) == close(actual)`.
+2. **Coherence** -- do two artifacts agree under primitive renaming?
+   `orbit_key(a) == orbit_key(b)`, or equivalently the count-vector
+   over a shared alphabet.
+3. **Coordination** -- do many agents agree on a fixpoint?
+   The per-agent verdicts are folded by quorum, consensus, or one
+   of the other lattice reductions.
+
+Each answer is a state in Belnap's FOUR lattice. The triad is the
+product of three states; its verdict is the lattice meet under the
+truth order. Because FOUR is a distributive bilattice, triad
+composition is commutative, associative, and idempotent -- so partial
+verifications can be combined without loss of soundness.

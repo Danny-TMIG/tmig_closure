@@ -30,3 +30,4 @@ Semantic Versioning: [semver.org](https://semver.org/spec/v2.0.0.html).
 
 [Unreleased]: https://github.com/Danny-TMIG/tmig_closure/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/Danny-TMIG/tmig_closure/releases/tag/v0.1.0
+[0.2.0]: https://github.com/Danny-TMIG/tmig_closure/releases/tag/v0.2.0

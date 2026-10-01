@@ -1,5 +1,10 @@
 # tmig_closure
 
+![ci](https://github.com/Danny-TMIG/tmig_closure/actions/workflows/ci.yml/badge.svg)
+![codeql](https://github.com/Danny-TMIG/tmig_closure/actions/workflows/codeql.yml/badge.svg)
+![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![python](https://img.shields.io/badge/python-3.12%2B-blue.svg)
+
 **Autonomous Edge Super-Node — deterministic closure kernel for capability composition.**
 
 Reduces every domain (AI, DevOps, networking, IoT, web, quantum) to two things:

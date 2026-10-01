@@ -22,3 +22,11 @@ coverage.xml
 .idea/
 .vscode/
 *.swp
+
+# dev-only bootstrap/repair scripts
+install.py
+_bootstrap.py
+_github_bootstrap.sh
+_finish.sh
+_refine.sh
+fix_*.py

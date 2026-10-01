@@ -1,0 +1,14 @@
+*                               @Danny-TMIG
+
+# Kernel — changes here invalidate the algebraic guarantees
+/src/tmig_closure/core.py       @Danny-TMIG
+/src/tmig_closure/symmetry.py   @Danny-TMIG
+
+# Machine-checked proofs live here
+/tests/test_properties.py       @Danny-TMIG
+/scripts/verify.py              @Danny-TMIG
+
+# Supply chain
+/.github/workflows/             @Danny-TMIG
+/Dockerfile                     @Danny-TMIG
+/pyproject.toml                 @Danny-TMIG

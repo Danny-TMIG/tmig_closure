@@ -1,0 +1,19 @@
+changelog:
+  exclude:
+    labels: [skip-changelog, dependencies]
+    authors: [dependabot, github-actions[bot]]
+  categories:
+    - title: Breaking changes
+      labels: [breaking]
+    - title: Features
+      labels: [enhancement]
+    - title: Fixes
+      labels: [bug]
+    - title: Security
+      labels: [security]
+    - title: Documentation
+      labels: [docs]
+    - title: CI / Build
+      labels: [ci, chore]
+    - title: Other
+      labels: ["*"]

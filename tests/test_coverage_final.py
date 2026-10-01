@@ -110,6 +110,7 @@ def test_configure_explicit_level_overrides_env(monkeypatch):
 
 # ── logging_config: extra-fields branch ────────────────────────
 
+
 def test_json_formatter_includes_extra_fields() -> None:
     """Cover the loop body that copies selected `extra={...}` fields."""
     import json as _json
@@ -118,7 +119,13 @@ def test_json_formatter_includes_extra_fields() -> None:
     from tmig_closure.logging_config import JsonFormatter
 
     record = _logging.LogRecord(
-        "t", _logging.INFO, __file__, 1, "msg", (), None,
+        "t",
+        _logging.INFO,
+        __file__,
+        1,
+        "msg",
+        (),
+        None,
     )
     # Attach every field the formatter inspects.
     record.event = "verify"

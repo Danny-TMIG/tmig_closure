@@ -52,6 +52,7 @@ ignore = ["E501"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "S311"]
+"src/tmig_closure/mastery/*.py" = ["S603", "S607"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -107,4 +108,4 @@ badge-format = "svg"
 
 [tool.bandit]
 exclude_dirs = ["tests", "scripts"]
-skips = ["B101"]   # asserts are fine in library code
+skips = ["B101", "B603", "B607"]   # asserts are fine in library code

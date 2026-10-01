@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 The Mark Intelligence Group
 """Tests for the conformance x coherence x coordination triad."""
+
 from __future__ import annotations
 
 import pytest
@@ -27,6 +28,7 @@ from tmig_closure.triad import (
 )
 
 # ── VState ─────────────────────────────────────────────────────
+
 
 def test_vstate_names():
     assert UNKNOWN.name == "UNKNOWN"
@@ -59,6 +61,7 @@ def test_all_states_complete():
 
 # ── lattice ops ────────────────────────────────────────────────
 
+
 def test_meet_truth_table():
     assert meet_truth(PASS, PASS) == PASS
     assert meet_truth(PASS, FAIL) == FAIL
@@ -89,6 +92,7 @@ def test_meet_know_table():
 
 # ── quorum_v ───────────────────────────────────────────────────
 
+
 def test_quorum_empty():
     assert quorum_v([]) == CONFLICT
 
@@ -107,6 +111,7 @@ def test_quorum_tie():
 
 # ── consensus_v ────────────────────────────────────────────────
 
+
 def test_consensus_empty():
     assert consensus_v([]) == UNKNOWN
 
@@ -120,6 +125,7 @@ def test_consensus_mixed():
 
 
 # ── conformance ────────────────────────────────────────────────
+
 
 def test_conformance_same_closure():
     rules = [rule("a", "b")]
@@ -137,6 +143,7 @@ def test_conformance_closure_error():
 
 
 # ── coherence ──────────────────────────────────────────────────
+
 
 def test_coherence_same_multiset():
     assert coherence(frozenset({"a", "b"}), frozenset({"b", "a"})) == PASS
@@ -160,6 +167,7 @@ def test_coherence_alphabet_mismatch():
 
 
 # ── coordination ───────────────────────────────────────────────
+
 
 def test_coordination_quorum():
     assert coordination([PASS, PASS, FAIL], mode="quorum") == PASS
@@ -194,6 +202,7 @@ def test_coordination_unknown_mode():
 
 
 # ── Triad ──────────────────────────────────────────────────────
+
 
 def test_triad_to_dict():
     t = Triad(PASS, FAIL, UNKNOWN)
@@ -238,6 +247,7 @@ def test_triad_merge():
 
 
 # ── verify ─────────────────────────────────────────────────────
+
 
 def test_verify_pass():
     t = verify(frozenset({"a"}), frozenset({"a"}), [rule("a", "b")])

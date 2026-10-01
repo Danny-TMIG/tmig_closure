@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 The Mark Intelligence Group
 """``python -m tmig_closure`` / ``tmig`` — CLI entry point."""
+
 from __future__ import annotations
 
 import argparse
@@ -35,6 +36,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cmd == "serve":
         import uvicorn
+
         uvicorn.run("tmig_closure.asgi:app", host="127.0.0.1", port=8000)
         return 0
 
@@ -46,10 +48,12 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"bad rule: {r}", file=sys.stderr)
                 return 2
             pre, _, post = r.partition(">")
-            rules.append(rule(
-                (x.strip() for x in pre.split(",") if x.strip()),
-                (x.strip() for x in post.split(",") if x.strip()),
-            ))
+            rules.append(
+                rule(
+                    (x.strip() for x in pre.split(",") if x.strip()),
+                    (x.strip() for x in post.split(",") if x.strip()),
+                )
+            )
         try:
             result = close(cfg, rules)
         except ClosureError as e:

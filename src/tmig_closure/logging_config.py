@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 The Mark Intelligence Group
 """Structured JSON logging to stderr, stdlib only."""
+
 from __future__ import annotations
 
 import json
@@ -23,7 +24,7 @@ class JsonFormatter(logging.Formatter):
         """Render a log record as a JSON string."""
         payload: dict[str, Any] = {
             "ts": time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime(record.created))
-                  + f".{int(record.msecs):03d}Z",
+            + f".{int(record.msecs):03d}Z",
             "level": record.levelname,
             "logger": record.name,
             "msg": record.getMessage(),
@@ -57,8 +58,10 @@ def configure(level: str | None = None, *, json_output: bool | None = None) -> N
 
     handler = logging.StreamHandler(sys.stderr)
     handler.setFormatter(
-        JsonFormatter() if json_output
-        else logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
+        JsonFormatter()
+        if json_output
+        else logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s")
+    )
     root.addHandler(handler)
     root.setLevel(lvl)
 

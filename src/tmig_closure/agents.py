@@ -7,6 +7,7 @@ once to each agent synchronously. :func:`run_to_fixpoint` brings every
 agent to its own closure. :func:`quorum` and :func:`consensus` are the
 two standard coordination predicates.
 """
+
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Sequence

@@ -20,6 +20,7 @@ so the triad algebra inherits commutativity, associativity, and
 idempotence from the lattice. Every axis reduces to the closure
 kernel in :mod:`tmig_closure.core`.
 """
+
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
@@ -43,15 +44,14 @@ class VState:
     def __post_init__(self) -> None:
         """Reject coordinates outside ``{0, 1}``."""
         if self.t not in (0, 1) or self.f not in (0, 1):
-            raise ValueError(
-                f"VState coordinates must be 0 or 1, got ({self.t}, {self.f})"
-            )
+            raise ValueError(f"VState coordinates must be 0 or 1, got ({self.t}, {self.f})")
 
     @property
     def name(self) -> str:
         """The canonical name: ``UNKNOWN``, ``PASS``, ``FAIL``, or ``CONFLICT``."""
-        return {(0, 0): "UNKNOWN", (1, 0): "PASS",
-                (0, 1): "FAIL", (1, 1): "CONFLICT"}[(self.t, self.f)]
+        return {(0, 0): "UNKNOWN", (1, 0): "PASS", (0, 1): "FAIL", (1, 1): "CONFLICT"}[
+            (self.t, self.f)
+        ]
 
     def to_dict(self) -> dict[str, int | str]:
         """Return a JSON-serializable view of this state."""

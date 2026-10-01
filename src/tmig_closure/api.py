@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 The Mark Intelligence Group
 """HTTP surface for the closure kernel."""
+
 from __future__ import annotations
 
 import os

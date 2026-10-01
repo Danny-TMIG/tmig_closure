@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 The Mark Intelligence Group
 """tmig_closure -- deterministic closure kernel for capability composition."""
+
 from tmig_closure.agents import Agent, consensus, product, quorum, run_to_fixpoint, step
 from tmig_closure.core import (
     ClosureError,

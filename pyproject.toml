@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tmig_closure"
-version = "0.3.0"
+version = "0.4.0"
 description = "Deterministic closure kernel for capability composition (AESN core)."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -54,6 +54,7 @@ ignore = ["E501"]
 "tests/*" = ["S101", "S311"]
 "src/tmig_closure/mastery/*.py" = ["S603", "S607"]
 "src/tmig_closure/mastery_languages/*.py" = ["W605"]
+"src/tmig_closure/mastery_engines/*.py" = ["W605"]
 
 [tool.mypy]
 python_version = "3.12"

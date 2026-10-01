@@ -13,6 +13,15 @@ from tmig_closure.core import (
     immediate_consequence,
     rule,
 )
+from tmig_closure.mastery_engines import (
+    ENGINES as ENGINE_ATLAS,
+)
+from tmig_closure.mastery_engines import (
+    assess as assess_engines,
+)
+from tmig_closure.mastery_engines import (
+    families as engine_families,
+)
 from tmig_closure.mastery_languages import (
     ATLAS as LANGUAGES_ATLAS,
 )
@@ -51,6 +60,7 @@ __version__ = "0.2.0"
 __all__ = [
     "ALL_STATES",
     "CONFLICT",
+    "ENGINE_ATLAS",
     "FAIL",
     "LANGUAGES_ATLAS",
     "PASS",
@@ -63,6 +73,7 @@ __all__ = [
     "Triad",
     "VState",
     "__version__",
+    "assess_engines",
     "assess_languages",
     "canonical",
     "classify_language",
@@ -74,6 +85,7 @@ __all__ = [
     "consensus_v",
     "coordination",
     "count_vector",
+    "engine_families",
     "immediate_consequence",
     "join_know",
     "join_truth",

@@ -163,6 +163,7 @@ _RAW: dict[str, list[tuple[str, str]]] = {
 
 
 def _build() -> tuple[Engine, ...]:
+    """Materialize the ENGINES tuple from the raw family table."""
     out: list[Engine] = []
     for fam, rows in _RAW.items():
         for eid, cmd in rows:

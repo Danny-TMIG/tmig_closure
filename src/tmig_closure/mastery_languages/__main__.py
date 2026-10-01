@@ -12,6 +12,7 @@ from tmig_closure.mastery_languages.mastery import assess
 
 
 def _parser() -> argparse.ArgumentParser:
+    """Construct the CLI argument parser."""
     p = argparse.ArgumentParser(prog="python -m tmig_closure.mastery_languages")
     p.add_argument("root", nargs="?", default=".")
     sub = p.add_subparsers(dest="cmd", required=True)

@@ -176,6 +176,7 @@ def languages() -> tuple[str, ...]:
 
 
 def _index() -> dict[str, Language]:
+    """Return a language-id -> Language lookup map."""
     return {lang.id: lang for lang in ATLAS}
 
 

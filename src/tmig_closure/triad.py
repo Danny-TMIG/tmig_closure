@@ -58,6 +58,7 @@ class VState:
         return {"t": self.t, "f": self.f, "name": self.name}
 
     def __repr__(self) -> str:
+        """Return the state name as its repr."""
         return self.name
 
 

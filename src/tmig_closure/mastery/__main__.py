@@ -15,6 +15,7 @@ from tmig_closure.mastery.mastery import Mastery
 
 
 def _build_parser() -> argparse.ArgumentParser:
+    """Construct the argument parser for the mastery CLI."""
     p = argparse.ArgumentParser(prog="python -m tmig_closure.mastery")
     p.add_argument("--repo", required=True, help="owner/name")
     p.add_argument("--ledger", default=".mastery/ledger.jsonl")

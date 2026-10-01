@@ -85,6 +85,7 @@ class Mastery:
         return [Run.from_gh(row) for row in json.loads(proc.stdout)]
 
     def _prior_retries(self, run_id: int) -> int:
+        """Count how many times mastery has already retried ``run_id``."""
         return sum(1 for r in self.ledger if r.run_id == run_id and r.action == Action.RETRY.value)
 
     def decide(self, run: Run) -> Decision:
@@ -114,6 +115,7 @@ class Mastery:
         return False
 
     def _retry(self, run: Run) -> bool:
+        """Invoke ``gh run rerun`` on ``run``; True iff gh exits 0."""
         cmd = ["gh", "run", "rerun", str(run.database_id), "--repo", self.repo]
         proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
         return proc.returncode == 0

@@ -1,4 +1,5 @@
 """ASGI + CLI entry-point coverage."""
+
 import subprocess
 import sys
 from pathlib import Path
@@ -14,7 +15,9 @@ def test_asgi_app_is_fastapi() -> None:
 def test_cli_version() -> None:
     r = subprocess.run(
         [sys.executable, "-m", "tmig_closure", "--version"],
-        capture_output=True, text=True, check=False,
+        capture_output=True,
+        text=True,
+        check=False,
     )
     assert r.returncode == 0
     assert "tmig_closure" in r.stdout
@@ -22,9 +25,10 @@ def test_cli_version() -> None:
 
 def test_cli_close_smoke() -> None:
     r = subprocess.run(
-        [sys.executable, "-m", "tmig_closure", "close",
-         "--config", "a", "--rule", "a>b"],
-        capture_output=True, text=True, check=False,
+        [sys.executable, "-m", "tmig_closure", "close", "--config", "a", "--rule", "a>b"],
+        capture_output=True,
+        text=True,
+        check=False,
     )
     assert r.returncode == 0
     assert '"a"' in r.stdout

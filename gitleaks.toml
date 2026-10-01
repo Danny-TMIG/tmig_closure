@@ -1,0 +1,8 @@
+title = "tmig_closure gitleaks configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist"
+paths = ["(^|/)tests/", "(^|/)docs/", ".env.example$"]

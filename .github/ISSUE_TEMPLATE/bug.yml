@@ -1,0 +1,12 @@
+name: Bug report
+description: Something is wrong
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What happened? }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes: { label: Minimal reproduction }
+    validations: { required: true }

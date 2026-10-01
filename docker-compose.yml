@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    image: tmig_closure:local
+    ports: ["8000:8000"]
+    environment:
+      TMIG_LOG_LEVEL: INFO
+      TMIG_LOG_JSON: "true"
+    read_only: true
+    tmpfs: ["/tmp"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    restart: unless-stopped
